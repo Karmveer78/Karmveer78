@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Karmveer78
 - 👀 I’m interested in Inovetion
-- 🌱 I’m currently learning Web desgine and develope
+- 🌱 I’m currently learning Web desgine and developement
 - � I’m looking to collaborate on Entrepreneur
 - 📫 How to reach me on googal sarch "karmveer singh sarwara"
 
