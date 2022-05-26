@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>CLOCK</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        body{width: 100%; height: 625px;}
+        h1,h2{text-align: center; background-color: brown;}
+        h3{text-align: center; margin: 10px;}
+        #main{
+            width: 500px; height: 500px;
+            position: relative;transform: translate(-50%,-50%);
+            top: 45%;left: 50%;background-color: aquamarine;
+        }
+        #clock{width: 400px; height: 400px;
+            position: relative;transform: translate(-50%,-50%);
+            top: 45%;left: 50%;background-color: aqua;
+            border-radius: 50%;border: 2px solid;
+        }
+        #center{position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; 
+            background-color: black; border-radius: 50%;transform: translate(-50%,-50%);}
+        #clock span{ position: absolute;transform: translate(-50%,-50%);}
+            #s1{ top: 16%;left: 70%; }
+            #s2{ top: 32%;left: 85%; }
+            #s3{ top: 50%;left: 92%; }
+            #s4{ top: 68%;left: 85%; }
+            #s5{ top: 85%;left: 70%; }
+            #s6{ top: 92%;left: 50%; }
+            #s7{ top: 85%;left: 30%; }
+            #s8{ top: 68%;left: 16%; }
+            #s9{ top: 50%;left: 8%;  }
+            #s10{ top: 32%;left: 16%;}
+            #s11{ top: 18%;left: 30%;}
+            #s12{ top: 8%;left: 50%; }
+        #hr{width: 100px; height: 0px;border: 2px solid;
+            position: absolute;
+            transform-origin: 2px;
+            top: 50%; left: 50%;
+            /* transform: translate(-50%,-50%); */
+            /* animation: myhr 216000s infinite; */
+        }
+        #mint{width: 140px; border: 2px dashed;
+            position: absolute;
+            transform-origin: 2px;
+            top: 50%; left: 50%;
+        }
+        #sec{width: 150px; border: 2px dotted;
+            position: absolute;
+            transform-origin: 2px;
+            top: 50%; left: 50%;
+        }
+    </style>
+</head>
+<body onload="startTime()">
+    <!-- <button id="demo"></button> -->
+    <h1>Javascript clock</h1>
+    <div id="main">
+    <h3 class="animate__animated animate__headShake">time is most imopent </h3>
+        <h2>now time is <span id="now"></span></h2>
+        <div id="clock">
+             <span id="s1">1</span>
+             <span id="s2">2</span>
+             <span id="s3">3</span>
+             <span id="s4">4</span>
+             <span id="s5">5</span>
+             <span id="s6">6</span>
+             <span id="s7">7</span>
+             <span id="s8">8</span>
+             <span id="s9">9</span>
+             <span id="s10">10</span>
+             <span id="s11">11</span>
+             <span id="s12">12</span>
+             <div id="hr"></div>
+             <div id="mint"></div>
+             <div id="sec"></div>
+             <!-- <div id="center"></div> -->
+            </div>
+    </div>
+    
+
+    <script>
+        function startTime() {
+          const today = new Date();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          if (h>12) {
+              h=h-12;
+             document.getElementById('now').innerHTML =  h + ":" + m + ":" + s +" "+"PM";
+          }else{ 
+            document.getElementById('now').innerHTML =  h + ":" + m + ":" + s +" "+"AM";
+            }
+        //   document.getElementById('now').innerHTML =  h + ":" + m + ":" + s +" "+"PM";
+          setTimeout(startTime, 1000);
+
+          const hr =document.getElementById("hr");
+          const mint =document.getElementById("mint");
+          const sec =document.getElementById("sec");
+          const hdeg=(h*30)-90;
+            const mdeg=(m*6)-90;
+            const sdeg=(s*6)-90;
+          hr.style.transform = `rotate(${hdeg}deg)`;
+          mint.style.transform = `rotate(${mdeg}deg)`;
+          sec.style.transform = `rotate(${sdeg}deg)`;
+        }
+
+        // $(document).ready(function(){
+        //     $('#demo').click(function(){
+        //         alert(1);
+        //     });
+        // });
+        </script>
+</body>
+</html>
